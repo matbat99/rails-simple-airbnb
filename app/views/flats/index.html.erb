@@ -4,14 +4,18 @@
 
 <br><br>
 
-<div class="d-flex flex-row flex-wrap justify-content-between">
+<div class="row justify-content-between">
   <% @flats.each do |flat| %>
-    <div class="card m-2" style="width: 22rem;">
-     <%= image_tag "https://source.unsplash.com/featured/?house", alt: "jimmy", width: 125, class: "card-img-top"%>
-      <div class="card-body">
-        <h5 class="card-title"><%= flat.name %></h5>
-        <p class="card-text"><%= flat.description %></p>
-        <%= link_to "Detail", flat_path(flat), class: "btn btn-primary" %>
+    <div class="col-md-3 mx-1">
+      <div class="card m-2" style="width: 22rem;">
+       <%= image_tag "#{flat.id}.jpeg", alt: "jimmy", class: "pic-card card-img-top"%>
+        <div class="card-body">
+          <h5 class="card-title"><%= flat.name %></h5>
+          <p class="card-text"><%= flat.address %></p>
+          <%= link_to "Detail", flat_path(flat), class: "btn btn-outline-primary" %>
+          <%= link_to "Edit", flats_path, class: "btn btn-outline-warning" %>
+          <%= link_to "Remove", flats_path, class: "btn btn-outline-danger" %>
+        </div>
       </div>
     </div>
 
